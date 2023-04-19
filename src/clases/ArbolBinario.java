@@ -1,28 +1,23 @@
 package clases;
 
+import structure5.BinarySearchTree;
+
 /*
  * Marcos Diaz (221102)
  * Hoja de trabajo #9
- * 19/04/2023
- * Clase que instancia un SplayTree
+ * 17/04/2023
+ * Clase que instancia un BinarySearchTree
  */
 
-import java.util.Comparator;
-import structure5.*;
+public class ArbolBinario<T extends Comparable<T>> implements IStructureTree<T>{
+    
+    private BinarySearchTree<T> miInternalTree;
 
-public class ArbolSplay<T extends Comparable<T>> implements IStructureTree<T> {
+    public ArbolBinario() {
+        miInternalTree = new BinarySearchTree<T>();
+    }
 
-	private SplayTree<T> miInternalTree;
-	
-	public ArbolSplay() {
-		miInternalTree = new SplayTree<T>();
-	}
-	
-	public ArbolSplay(Comparator<T> comparador) {
-		miInternalTree = new SplayTree<T>(comparador);
-	}
-	
-	@Override
+    @Override
 	public void add(T value) {
 		miInternalTree.add(value);
 		
@@ -48,8 +43,9 @@ public class ArbolSplay<T extends Comparable<T>> implements IStructureTree<T> {
 		return miInternalTree.isEmpty();
 	}
 	
-	public SplayTree<T> getInternalTree(){
+	public BinarySearchTree<T> getInternalTree(){
 		return miInternalTree;
 	}
+
 
 }
