@@ -3,6 +3,13 @@ import clases.ArbolSplay;
 import clases.IStructureTree;
 import clases.ArbolBinario;
 
+/*
+ * Marcos Diaz (221102)
+ * Hoja de trabajo #9
+ * 19/04/2023
+ * Clase Factory donde se creara el arbol dependiendo de la opcion del usuario
+ */
+
 public class TreeFactory<T extends Comparable<T>>{
 
     public IStructureTree<T> create(String type) {
