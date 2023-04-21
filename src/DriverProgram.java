@@ -3,6 +3,9 @@ import clases.ArbolSplay;
 import clases.ArbolBinario;
 import clases.IStructureTree;
 import java.util.*;
+
+import javax.xml.parsers.FactoryConfigurationError;
+
 import java.io.*;
 
 /*
@@ -43,10 +46,11 @@ public class DriverProgram {
         System.out.println("1. Arbol Binario   2. Arbol Splay   3. Arbol RedBlack");
         String type = scanner.nextLine();
 
-        TreeFactory<String> factory = new TreeFactory<>();
-        IStructureTree<String> arbol = factory.create(type);
+        TreeFactory<Palabra> factory = new TreeFactory<>();
+        IStructureTree<Palabra> tree = factory.createTree(type);
 
-
+        Association<Palabra> association = new Association<>(type);
+        association.buildTree(lineasArchivo);
 
     }
 }

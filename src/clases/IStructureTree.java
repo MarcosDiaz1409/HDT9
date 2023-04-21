@@ -23,5 +23,6 @@ public interface IStructureTree<T extends Comparable<T>>{
     
     // Método para verificar si el árbol está vacío
     boolean isEmpty();
+    
 
 }

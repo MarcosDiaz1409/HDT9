@@ -47,5 +47,9 @@ public class ArbolBinario<T extends Comparable<T>> implements IStructureTree<T>{
 		return miInternalTree;
 	}
 
+	public String printTree(){
+		return miInternalTree.treeString();
+	}
+
 
 }

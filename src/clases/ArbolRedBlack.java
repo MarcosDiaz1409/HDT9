@@ -47,4 +47,8 @@ public class ArbolRedBlack<T extends Comparable<T>> implements IStructureTree<T>
 		return myInternalTree;
 	}
 
+	public String printTree(){
+		return myInternalTree.treeString();
+	}
+
 }
