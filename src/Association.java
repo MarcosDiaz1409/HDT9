@@ -22,7 +22,7 @@ public class Association<T extends Comparable<T>>{
             tree.add(palabra);
         }
 
-        tree.toString();
+        tree.printTree();
 
     }
 

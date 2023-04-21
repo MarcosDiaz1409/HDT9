@@ -1,6 +1,7 @@
 package clases;
 
 import structure5.BinarySearchTree;
+import java.util.*;
 
 /*
  * Marcos Diaz (221102)
@@ -15,6 +16,10 @@ public class ArbolBinario<T extends Comparable<T>> implements IStructureTree<T>{
 
     public ArbolBinario() {
         miInternalTree = new BinarySearchTree<T>();
+    }
+
+	public ArbolBinario(Comparator<T> comparador) {
+        miInternalTree = new BinarySearchTree<T>(comparador);
     }
 
     @Override
@@ -47,6 +52,7 @@ public class ArbolBinario<T extends Comparable<T>> implements IStructureTree<T>{
 		return miInternalTree;
 	}
 
+	@Override
 	public String printTree(){
 		return miInternalTree.treeString();
 	}

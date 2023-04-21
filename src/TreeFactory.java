@@ -18,13 +18,13 @@ public class TreeFactory<T extends Comparable<T>>{
             return null;
         }
         if (type.equalsIgnoreCase("Arbol Splay")) {
-            return new ArbolSplay<>();
+            return new ArbolSplay<T>();
         }
         if (type.equalsIgnoreCase("Arbol RedBlack")) {
-            return new ArbolRedBlack<>();
+            return new ArbolRedBlack<T>();
         }
         if (type.equalsIgnoreCase("Arbol Binario")) {
-            return new ArbolBinario<>();
+            return new ArbolBinario<T>();
         }
         return null;
 
