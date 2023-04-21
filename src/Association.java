@@ -12,17 +12,17 @@ public class Association<T extends Comparable<T>>{
 
     }
     
-    public void buildTree(ArrayList<String> list) {
+    public IStructureTree<Palabra> buildTree(ArrayList<String> list) {
         
         for (String line : list) {
             String[] words = line.split(",");
             String english = words[0].trim();
-            String spanish = words[1].trim();
+            String spanish = words[1].trim();   
             Palabra palabra = new Palabra(spanish, english);
             tree.add(palabra);
         }
 
-        tree.printTree();
+        return tree;
 
     }
 

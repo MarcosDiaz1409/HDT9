@@ -1,10 +1,7 @@
-import clases.ArbolRedBlack;
-import clases.ArbolSplay;
-import clases.ArbolBinario;
-import clases.IStructureTree;
 import java.util.*;
-
 import javax.xml.parsers.FactoryConfigurationError;
+
+import clases.IStructureTree;
 
 import java.io.*;
 
@@ -41,16 +38,57 @@ public class DriverProgram {
         }
 
         // Creacion del arbol
-        Scanner scanner = new Scanner(System.in);
+        Scanner teclado = new Scanner(System.in);
         System.out.println("\nEscribe el tipo de arbol que quieres usar\n");
         System.out.println("1. Arbol Binario   2. Arbol Splay   3. Arbol RedBlack");
-        String type = scanner.nextLine();
+        String type = teclado.nextLine();
 
         TreeFactory<Palabra> factory = new TreeFactory<>();
-        IStructureTree<Palabra> tree = factory.createTree(type);
+        IStructureTree<Palabra> arbol = factory.createTree(type);
 
         Association<Palabra> association = new Association<>(type);
-        association.buildTree(lineasArchivo);
+        arbol = association.buildTree(lineasArchivo);
+        System.out.println("\nEl arbol solicitado se ha creado");
+
+        // Traduccion del archivo de entrada
+        ArrayList<String> lineasTrad = new ArrayList<>();
+
+        File file1 = new File("C:/Ejemplos/traduccion.txt"); // Poner aqui la direccion del archivo de texto a utilizar
+        try {
+            try (BufferedReader br = new BufferedReader(new FileReader(file1))){
+                while(br.ready()) {
+                    lineasTrad.add(br.readLine());
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        ArrayList<String> newTrad = new ArrayList<String>();
+        for(String word : lineasTrad){
+            newTrad.add(word.toLowerCase());
+        }
+
+        System.out.println("\n>>> Texto a traducir:");
+        for(int i = 0; i < newTrad.size(); i++) {
+            System.out.println(newTrad.get(i));
+        }
+
+        System.out.println("\n>>> Texto traducido: ");
+        StringBuilder nuevaFrase = new StringBuilder();
+        String[] palabras = newTrad.get(0).split("\\s+");
+
+        for (String palabra : palabras) {
+            Palabra p = arbol.get(new Palabra(palabra, ""));
+            if (p != null) {
+                nuevaFrase.append(p.getSpanish()).append(" ");
+            } else {
+                nuevaFrase.append(palabra).append(" ");
+            }
+        }
+
+        System.out.println(nuevaFrase.toString() + "\n");
 
     }
+       
 }

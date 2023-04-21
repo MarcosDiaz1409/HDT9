@@ -22,10 +22,6 @@ public interface IStructureTree<T extends Comparable<T>>{
     int count();
     
     // Método para verificar si el árbol está vacío
-    boolean isEmpty();
-
-    // Metodo para imprimir un arbol
-    String printTree();
-    
+    boolean isEmpty();    
 
 }
